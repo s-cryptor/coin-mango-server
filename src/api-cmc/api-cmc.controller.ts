@@ -5,7 +5,7 @@ import { ApiCmcService } from './api-cmc.service'
 export class ApiCmcController {
   constructor(private readonly apiCmcService: ApiCmcService) {}
 
-  @Get('/api/cmc/latest')
+  @Get('/api/cmc/cryptocurrency/map')
   getMap(@Query() query): object {
     return this.apiCmcService.getMap(query)
   }

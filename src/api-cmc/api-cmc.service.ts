@@ -4,22 +4,20 @@ import axios from 'axios'
 interface IQuery {
   start: string
   limit: string
-  convert: string
 }
 
 @Injectable()
 export class ApiCmcService {
   async getMap(query: IQuery): Promise<object> {
     const res = await axios.get(
-      `https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest`,
+      `https://pro-api.coinmarketcap.com/v1/cryptocurrency/map`,
       {
         headers: {
           'X-CMC_PRO_API_KEY': process.env.CMC_TOKEN
         },
         params: {
           start: +query.start,
-          limit: +query.limit,
-          convert: query.convert
+          limit: +query.limit
         }
       }
     )
