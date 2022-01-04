@@ -4,6 +4,9 @@ import axios from 'axios'
 interface IQuery {
   start: string
   limit: string
+  sort: string
+  symbol?: string
+  aux?: string
 }
 
 @Injectable()
@@ -17,7 +20,8 @@ export class ApiCmcService {
         },
         params: {
           start: +query.start,
-          limit: +query.limit
+          limit: +query.limit,
+          sort: query.sort
         }
       }
     )
