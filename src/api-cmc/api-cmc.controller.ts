@@ -9,4 +9,9 @@ export class ApiCmcController {
   getMap(@Query() query): object {
     return this.apiCmcService.getMap(query)
   }
+
+  @Get('/api/cmc/cryptocurrency/listings/latest')
+  getListingsLatest(@Query() query): object {
+    return this.apiCmcService.getListingsLatest(query)
+  }
 }
