@@ -13,7 +13,7 @@ interface IQuery {
 export class ApiCmcService {
   async getMap(query: IQuery): Promise<object> {
     const res = await axios.get(
-      `https://pro-api.coinmarketcap.com/v1/cryptocurrency/map`,
+      `${process.env.CMC_URL}/v1/cryptocurrency/map`,
       {
         headers: {
           'X-CMC_PRO_API_KEY': process.env.CMC_TOKEN
@@ -31,7 +31,7 @@ export class ApiCmcService {
 
   async getListingsLatest(query: IQuery): Promise<object> {
     const res = await axios.get(
-      `https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest`,
+      `${process.env.CMC_URL}/v1/cryptocurrency/listings/latest`,
       {
         headers: {
           'X-CMC_PRO_API_KEY': process.env.CMC_TOKEN
