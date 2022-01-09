@@ -14,6 +14,24 @@ interface IRequest {
 
 @Injectable()
 export class ApiCoingeckoService {
+  async getMarkets(req: IRequest): Promise<object> {
+    try {
+      const res = await axios.get(
+        `${process.env.COINGECKO_URL}/coins/markets`,
+        {
+          params: {
+            vs_currency: req.query.vs_currency,
+            price_change_percentage: '24h,7d'
+          }
+        }
+      )
+
+      return res.data
+    } catch (error) {
+      console.error(error.response.data)
+    }
+  }
+
   async getMarketChart(req: IRequest): Promise<object> {
     try {
       const res = await axios.get(
