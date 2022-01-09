@@ -21,7 +21,8 @@ export class ApiCoingeckoService {
         {
           params: {
             vs_currency: req.query.vs_currency,
-            price_change_percentage: '24h,7d'
+            price_change_percentage: '24h,7d',
+            per_page: 40
           }
         }
       )
