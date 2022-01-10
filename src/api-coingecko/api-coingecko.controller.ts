@@ -14,4 +14,9 @@ export class ApiCoingeckoController {
   getMarketChart(@Request() req): object {
     return this.apiCoingeckoService.getMarketChart(req)
   }
+
+  @Get('/api/coingecko/coins/:id')
+  getCoin(@Request() req): object {
+    return this.apiCoingeckoService.getCoin(req)
+  }
 }

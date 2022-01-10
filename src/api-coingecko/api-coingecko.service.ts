@@ -51,4 +51,16 @@ export class ApiCoingeckoService {
       console.error(error.response.data)
     }
   }
+
+  async getCoin(req: IRequest): Promise<object> {
+    try {
+      const res = await axios.get(
+        `${process.env.COINGECKO_URL}/coins/${req.params.id}`
+      )
+
+      return res.data
+    } catch (error) {
+      console.error(error.response.data)
+    }
+  }
 }
